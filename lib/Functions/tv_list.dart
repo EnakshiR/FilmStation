@@ -1,7 +1,6 @@
 class TVLists {
-  String title;
-  String backDropPath;
-  String originalTitle;
+  String name;
+  String originalName;
   String overview;
   String posterPath;
   String airingDate;
@@ -10,9 +9,8 @@ class TVLists {
 
 //Making a constructor
   TVLists({
-    required this.title,
-    required this.backDropPath,
-    required this.originalTitle,
+    required this.name,
+    required this.originalName,
     required this.overview,
     required this.posterPath,
     required this.airingDate,
@@ -22,9 +20,8 @@ class TVLists {
 
   factory TVLists.fromJson(Map<String, dynamic> json) {
     return TVLists(
-        title: json["title"],
-        backDropPath: json["backdrop_path"],
-        originalTitle: json["original_title"],
+        name: json["name"],
+        originalName: json["original_name"],
         overview: json["overview"],
         posterPath: json["poster_path"],
         airingDate: json["first_air_date"],

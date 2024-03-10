@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'FILM STATION',
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Color.fromARGB(255, 3, 30, 53),
+        scaffoldBackgroundColor: Color.fromARGB(255, 1, 24, 45),
       ),
       home: const Homepage(),
     );

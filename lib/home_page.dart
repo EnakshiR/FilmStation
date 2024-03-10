@@ -48,9 +48,10 @@ class _HomePageState extends State<Homepage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 32),
               Text(
-                'Now playing in Cinemas',
-                style: GoogleFonts.alexandria(fontSize: 20),
+                ' Now playing in Cinemas',
+                style: GoogleFonts.alkalami(fontSize: 23),
               ),
               const SizedBox(height: 32),
               SizedBox(
@@ -71,8 +72,8 @@ class _HomePageState extends State<Homepage> {
               ),
               const SizedBox(height: 32),
               Text(
-                'Best Movies of the year',
-                style: GoogleFonts.aBeeZee(fontSize: 20),
+                ' Best Movies of  the year',
+                style: GoogleFonts.alkalami(fontSize: 23),
               ),
               const SizedBox(height: 32),
               SizedBox(
@@ -93,8 +94,8 @@ class _HomePageState extends State<Homepage> {
               ),
               const SizedBox(height: 32),
               Text(
-                'What is on TV tonight?',
-                style: GoogleFonts.aBeeZee(fontSize: 20),
+                ' What is on TV tonight?',
+                style: GoogleFonts.alkalami(fontSize: 23),
               ),
               const SizedBox(height: 32),
               SizedBox(
@@ -116,8 +117,8 @@ class _HomePageState extends State<Homepage> {
               //const PopularTVShows(),
               const SizedBox(height: 32),
               Text(
-                'Highest-grossing movies',
-                style: GoogleFonts.aBeeZee(fontSize: 20),
+                ' Highest-grossing movies',
+                style: GoogleFonts.alkalami(fontSize: 23),
               ),
               const SizedBox(height: 32),
               SizedBox(
@@ -138,8 +139,8 @@ class _HomePageState extends State<Homepage> {
               ),
               const SizedBox(height: 32),
               Text(
-                'Childrens movies',
-                style: GoogleFonts.aBeeZee(fontSize: 20),
+                ' Childrens movies',
+                style: GoogleFonts.alkalami(fontSize: 23),
               ),
               const SizedBox(height: 32),
               SizedBox(
