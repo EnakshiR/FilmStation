@@ -14,7 +14,7 @@ class CinemaMovies extends StatelessWidget {
       child: CarouselSlider.builder(
           itemCount: snapshot.data.length,
           options: CarouselOptions(
-            height: carouselHeight, //300 for android and 900 for web
+            height: carouselHeight,
             autoPlay: true,
             viewportFraction: 0.55,
             enlargeCenterPage: true,

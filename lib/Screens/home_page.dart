@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Functions/tv_list.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'API/api_key_url.dart';
-import 'Functions/movie_list.dart';
-import 'Widgets/best_movies.dart';
-import 'Widgets/childrens_movies.dart';
-import 'Widgets/highest_grossing_movies.dart';
-import 'Widgets/tv_shows.dart';
-import 'Widgets/cinema_movies.dart';
+import '../API/api_key_url.dart';
+import '../Functions/movie_list.dart';
+import '../Widgets/best_movies.dart';
+import '../Widgets/childrens_movies.dart';
+import '../Widgets/highest_grossing_movies.dart';
+import '../Widgets/tv_shows.dart';
+import '../Widgets/cinema_movies.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
