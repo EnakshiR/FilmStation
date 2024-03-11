@@ -24,6 +24,9 @@ class _HomePageState extends State<Homepage> {
   late Future<List<MovieLists>> highestGrossMovies;
   late Future<List<MovieLists>> kidsMovies;
 
+  final TextEditingController _searchController = TextEditingController();
+  List<MovieLists> _searchResults = [];
+
   @override
   void initState() {
     super.initState();
@@ -32,6 +35,21 @@ class _HomePageState extends State<Homepage> {
     bestMovies = MyApiKeys().getBestMovies();
     highestGrossMovies = MyApiKeys().getHighestGrossingMovies();
     kidsMovies = MyApiKeys().getChildrenMovies();
+  }
+
+  void _filterMovies(String query) {
+    if (query.isEmpty) {
+      setState(() {
+        _searchResults = [];
+      });
+      return;
+    }
+
+    setState(() {
+      _searchResults = bestMovies.then((value) => value.where((element) {
+            return element.title!.toLowerCase().contains(query.toLowerCase());
+          }).toList()) as List<MovieLists>;
+    });
   }
 
   @override
@@ -49,6 +67,19 @@ class _HomePageState extends State<Homepage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 32),
+              TextField(
+                controller: _searchController,
+                onChanged: (value) => _filterMovies(value),
+                decoration: InputDecoration(
+                  hintText: 'Search movies...',
+                  border: InputBorder.none,
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () {},
+                  ),
+                ),
+              ),
+              const SizedBox(height: 25),
               Text(
                 ' Now playing in Cinemas',
                 style: GoogleFonts.alkalami(fontSize: 23),

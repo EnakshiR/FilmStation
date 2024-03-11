@@ -12,7 +12,7 @@ class MyApiKeys {
       'https://api.themoviedb.org/3/tv/airing_today?api_key=cfe5b073340152cbfba63b6c9ef1f864';
 
   static const _bestRatedMoviesURL =
-      'https://api.themoviedb.org/3/discover/movie?api_key=cfe5b073340152cbfba63b6c9ef1f864&primary_release_year=2023&sort_by=popularity.desc';
+      'https://api.themoviedb.org/3/discover/movie?api_key=cfe5b073340152cbfba63b6c9ef1f864&primary_release_year=2024&sort_by=popularity.desc';
 
   static const _highestGrossingURL =
       'https://api.themoviedb.org/3/discover/movie?api_key=cfe5b073340152cbfba63b6c9ef1f864&sort_by=revenue.desc';
