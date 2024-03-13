@@ -20,6 +20,9 @@ class MyApiKeys {
   static const _childrenMoviesURL =
       'https://api.themoviedb.org/3/discover/movie?api_key=cfe5b073340152cbfba63b6c9ef1f864&with_original_language=en&certification_country=US&certification.lte=G&with_genres=16';
 
+  static String searchBarUrl(String query) =>
+      'https://api.themoviedb.org/3/search/multi?api_key=cfe5b073340152cbfba63b6c9ef1f864&query=$query&sort_by=popularity.desc';
+
   Future<List<MovieLists>> getNowPlayingMovies() async {
     final response = await http.get(Uri.parse(_cinemaMoviesURL));
     if (response.statusCode == 200) {
