@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Functions/movie_list.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import '../API/api_key_url.dart';
+import 'details_page_for_movies.dart';
 import 'search_bar.dart';
 
 class SearchedDetails extends StatefulWidget {
@@ -18,56 +21,31 @@ class _SearchedDetailsScreenState extends State<SearchedDetails> {
   List<Map<String, dynamic>> results = [];
   final TextEditingController searchItem = TextEditingController();
 
-  Future<void> SearchList(String value) async {
-    var searchResponse =
-        await http.get(Uri.parse(MyApiKeys.searchBarUrl(value)));
+  Future<void> searchInfo(String value) async {
+    var searchStatus = await http.get(Uri.parse(MyApiKeys.searchBarUrl(value)));
     print("Searching for: $value");
 
-    if (searchResponse.statusCode == 200) {
-      var tempdata = jsonDecode(searchResponse.body);
-      var searchJson = tempdata['results'];
+    if (searchStatus.statusCode == 200) {
+      var data = jsonDecode(searchStatus.body);
+      var checkJson = data['results'];
 
-      for (var i = 0; i < searchJson.length; i++) {
+      for (var i = 0; i < checkJson.length; i++) {
         //only add value if all are present
-        if (searchJson[i]['id'] != null &&
-            (searchJson[i]['poster_path'] != null ||
-                searchJson[i]['profile_path'] != null) &&
-            searchJson[i]['media_type'] != null &&
-            searchJson[i]['popularity'] != null &&
-            (searchJson[i]['overview'] != null ||
-                searchJson[i]['known_for_department'] != null)) {
+        if (checkJson[i]['poster_path'] != null &&
+            checkJson[i]['popularity'] != null &&
+            checkJson[i]['overview'] != null) {
           print("this is item: $i");
 
-          if (searchJson[i]['media_type'] == 'movie') {
-            results.add({
-              'id': searchJson[i]['id'],
-              'title': searchJson[i]['title'],
-              'poster_path': searchJson[i]['poster_path'],
-              'vote_average': searchJson[i]['vote_average'],
-              'media_type': searchJson[i]['media_type'],
-              'popularity': searchJson[i]['popularity'],
-              'overview': searchJson[i]['overview'],
-            });
-          } else if (searchJson[i]['media_type'] == 'tv') {
-            results.add({
-              'id': searchJson[i]['id'],
-              'title': searchJson[i]['name'],
-              'poster_path': searchJson[i]['poster_path'],
-              'vote_average': searchJson[i]['vote_average'],
-              'media_type': searchJson[i]['media_type'],
-              'popularity': searchJson[i]['popularity'],
-              'overview': searchJson[i]['overview'],
-            });
-          } else if (searchJson[i]['media_type'] == 'person') {
-            results.add({
-              'id': searchJson[i]['id'],
-              'title': searchJson[i]['name'],
-              'poster_path': searchJson[i]['profile_path'],
-              'media_type': searchJson[i]['media_type'],
-              'popularity': searchJson[i]['popularity'],
-              'overview': searchJson[i]['known_for_department'],
-            });
-          }
+          results.add({
+            'title': checkJson[i]['title'],
+            'poster_path': checkJson[i]['poster_path'],
+            'original_title': checkJson[i]['original_title'],
+            'vote_average': checkJson[i]['vote_average'],
+            'backdrop_path': checkJson[i]['backdrop_path'],
+            'release_date': checkJson[i]['release_date'],
+            'popularity': checkJson[i]['popularity'],
+            'overview': checkJson[i]['overview'],
+          });
           if (results.length > 20) {
             results.removeRange(20, results.length);
           }
@@ -82,7 +60,7 @@ class _SearchedDetailsScreenState extends State<SearchedDetails> {
   void initState() {
     super.initState();
     searchItem.text = widget.searchQuery;
-    SearchList(widget.searchQuery);
+    searchInfo(widget.searchQuery);
   }
 
   @override
@@ -90,24 +68,33 @@ class _SearchedDetailsScreenState extends State<SearchedDetails> {
     return Scaffold(
       appBar: AppBar(title: SearchBarFunction()),
       body: FutureBuilder(
-        future: SearchList(searchItem.text),
+        future: searchInfo(searchItem.text),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return ListView.builder(
               itemCount: results.length,
               itemBuilder: (context, index) {
-                // Result items
+                //Search Results
                 return Card(
                   elevation: 4,
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              Details(movie: createMovieLists(results, index)),
+                        ),
+                      );
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Movie Poster
+                          //Poster
                           Container(
                             width: 80,
                             height: 120,
@@ -115,9 +102,10 @@ class _SearchedDetailsScreenState extends State<SearchedDetails> {
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(
                                 image: NetworkImage(
-                                  '${results[index]['poster_path']}',
+                                  'https://image.tmdb.org/t/p/w500/${results[index]['poster_path']}',
                                 ),
                                 fit: BoxFit.cover,
+                                filterQuality: FilterQuality.high,
                               ),
                             ),
                           ),
@@ -126,25 +114,34 @@ class _SearchedDetailsScreenState extends State<SearchedDetails> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                // Movie Title
+                                //Title
                                 Text(
                                   results[index]['title'],
-                                  style: TextStyle(
+                                  style: GoogleFonts.aBeeZee(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 16,
+                                    fontSize: 20,
                                   ),
                                 ),
                                 const SizedBox(height: 5),
-                                // Movie Overview
+                                //Overview
                                 Text(
                                   'Overview: ${results[index]['overview']}',
-                                  maxLines: 2,
+                                  style: GoogleFonts.aBeeZee(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
+                                  maxLines: 3,
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 const SizedBox(height: 5),
-                                // Movie Popularity
+                                //Popularity
                                 Text(
-                                    'Popularity: ${results[index]['popularity']}'),
+                                  'Popularity: ${results[index]['popularity']}',
+                                  style: GoogleFonts.aBeeZee(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -163,5 +160,17 @@ class _SearchedDetailsScreenState extends State<SearchedDetails> {
         },
       ),
     );
+  }
+
+  MovieLists createMovieLists(List<Map<String, dynamic>> results, int index) {
+    return MovieLists(
+        title: results[index]['title'],
+        backDropPath: results[index]['backdrop_path'],
+        originalTitle: results[index]['original_title'],
+        overview: results[index]['overview'],
+        posterPath: results[index]['poster_path'],
+        releaseDate: results[index]['release_date'],
+        popularity: results[index]['popularity'],
+        voteAverage: results[index]['vote_average']);
   }
 }

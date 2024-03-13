@@ -89,31 +89,54 @@ class DetailsTV extends StatelessWidget {
                       child: Row(
                     children: [
                       Container(
-                          padding: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Row(
-                            children: [
-                              Text(
-                                'Ratings: ',
-                                style: GoogleFonts.aBeeZee(
-                                    fontSize: 17, fontWeight: FontWeight.bold),
-                              ),
-                              const Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                              ),
-                              Text(
-                                '${tvShows.voteAverage.toStringAsFixed(1)}/10',
-                                style: GoogleFonts.aBeeZee(
-                                    fontSize: 15, fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ))
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              'Ratings: ',
+                              style: GoogleFonts.aBeeZee(
+                                  fontSize: 17, fontWeight: FontWeight.bold),
+                            ),
+                            const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                            ),
+                            Text(
+                              '${tvShows.voteAverage.toStringAsFixed(1)}/10',
+                              style: GoogleFonts.aBeeZee(
+                                  fontSize: 15, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      )
                     ],
-                  ))
+                  )),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // Handle action when "Watch List" button is pressed
+                          },
+                          child: Text('+ Add to Watch List'),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // Handle action when "Watched List" button is pressed
+                          },
+                          child: Text('+ Add to Watched List'),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

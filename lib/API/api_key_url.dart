@@ -21,7 +21,7 @@ class MyApiKeys {
       'https://api.themoviedb.org/3/discover/movie?api_key=cfe5b073340152cbfba63b6c9ef1f864&with_original_language=en&certification_country=US&certification.lte=G&with_genres=16';
 
   static String searchBarUrl(String query) =>
-      'https://api.themoviedb.org/3/search/multi?api_key=cfe5b073340152cbfba63b6c9ef1f864&query=$query&sort_by=popularity.desc';
+      'https://api.themoviedb.org/3/search/movie?api_key=cfe5b073340152cbfba63b6c9ef1f864&query=$query&sort_by=popularity.desc';
 
   Future<List<MovieLists>> getNowPlayingMovies() async {
     final response = await http.get(Uri.parse(_cinemaMoviesURL));
@@ -65,6 +65,16 @@ class MyApiKeys {
 
   Future<List<MovieLists>> getChildrenMovies() async {
     final response = await http.get(Uri.parse(_childrenMoviesURL));
+    if (response.statusCode == 200) {
+      final decodeJsonData = json.decode(response.body)['results'] as List;
+      return decodeJsonData.map((movie) => MovieLists.fromJson(movie)).toList();
+    } else {
+      throw Exception('Error has occured');
+    }
+  }
+
+  Future<List<MovieLists>> getSearchMovies(String query) async {
+    final response = await http.get(Uri.parse(searchBarUrl(query)));
     if (response.statusCode == 200) {
       final decodeJsonData = json.decode(response.body)['results'] as List;
       return decodeJsonData.map((movie) => MovieLists.fromJson(movie)).toList();

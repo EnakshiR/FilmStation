@@ -45,125 +45,148 @@ class _HomePageState extends State<Homepage> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 32),
-              SearchBarFunction(),
-              const SizedBox(height: 25),
-              Text(
-                ' Now playing in Cinemas',
-                style: GoogleFonts.alkalami(fontSize: 23),
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 32),
+            SearchBarFunction(),
+            const SizedBox(height: 25),
+            Text(
+              ' Now playing in Cinemas',
+              style: GoogleFonts.alkalami(fontSize: 23),
+            ),
+            const SizedBox(height: 32),
+            SizedBox(
+              child: FutureBuilder(
+                future: nowPlayingMovies,
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Center(child: Text(snapshot.error.toString()));
+                  } else if (snapshot.hasData) {
+                    return CinemaMovies(
+                      snapshot: snapshot,
+                    );
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                },
               ),
-              const SizedBox(height: 32),
-              SizedBox(
-                child: FutureBuilder(
-                  future: nowPlayingMovies,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasError) {
-                      return Center(child: Text(snapshot.error.toString()));
-                    } else if (snapshot.hasData) {
-                      return CinemaMovies(
-                        snapshot: snapshot,
-                      );
-                    } else {
-                      return const Center(child: CircularProgressIndicator());
-                    }
-                  },
-                ),
+            ),
+            const SizedBox(height: 32),
+            Text(
+              ' Best Movies of  the year',
+              style: GoogleFonts.alkalami(fontSize: 23),
+            ),
+            const SizedBox(height: 32),
+            SizedBox(
+              child: FutureBuilder(
+                future: bestMovies,
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Center(child: Text(snapshot.error.toString()));
+                  } else if (snapshot.hasData) {
+                    return BestMovies(
+                      snapshot: snapshot,
+                    );
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                },
               ),
-              const SizedBox(height: 32),
-              Text(
-                ' Best Movies of  the year',
-                style: GoogleFonts.alkalami(fontSize: 23),
+            ),
+            const SizedBox(height: 32),
+            Text(
+              ' What is on TV tonight?',
+              style: GoogleFonts.alkalami(fontSize: 23),
+            ),
+            const SizedBox(height: 32),
+            SizedBox(
+              child: FutureBuilder(
+                future: tvShows,
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Center(child: Text(snapshot.error.toString()));
+                  } else if (snapshot.hasData) {
+                    return PopularTVShows(
+                      snapshot: snapshot,
+                    );
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                },
               ),
-              const SizedBox(height: 32),
-              SizedBox(
-                child: FutureBuilder(
-                  future: bestMovies,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasError) {
-                      return Center(child: Text(snapshot.error.toString()));
-                    } else if (snapshot.hasData) {
-                      return BestMovies(
-                        snapshot: snapshot,
-                      );
-                    } else {
-                      return const Center(child: CircularProgressIndicator());
-                    }
-                  },
-                ),
+            ),
+            //const PopularTVShows(),
+            const SizedBox(height: 32),
+            Text(
+              ' Highest-grossing movies',
+              style: GoogleFonts.alkalami(fontSize: 23),
+            ),
+            const SizedBox(height: 32),
+            SizedBox(
+              child: FutureBuilder(
+                future: highestGrossMovies,
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Center(child: Text(snapshot.error.toString()));
+                  } else if (snapshot.hasData) {
+                    return HighestGrossingMovies(
+                      snapshot: snapshot,
+                    );
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                },
               ),
-              const SizedBox(height: 32),
-              Text(
-                ' What is on TV tonight?',
-                style: GoogleFonts.alkalami(fontSize: 23),
+            ),
+            const SizedBox(height: 32),
+            Text(
+              ' Childrens movies',
+              style: GoogleFonts.alkalami(fontSize: 23),
+            ),
+            const SizedBox(height: 32),
+            SizedBox(
+              child: FutureBuilder(
+                future: kidsMovies,
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Center(child: Text(snapshot.error.toString()));
+                  } else if (snapshot.hasData) {
+                    return ChildrensMovies(
+                      snapshot: snapshot,
+                    );
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                },
               ),
-              const SizedBox(height: 32),
-              SizedBox(
-                child: FutureBuilder(
-                  future: tvShows,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasError) {
-                      return Center(child: Text(snapshot.error.toString()));
-                    } else if (snapshot.hasData) {
-                      return PopularTVShows(
-                        snapshot: snapshot,
-                      );
-                    } else {
-                      return const Center(child: CircularProgressIndicator());
-                    }
-                  },
-                ),
-              ),
-              //const PopularTVShows(),
-              const SizedBox(height: 32),
-              Text(
-                ' Highest-grossing movies',
-                style: GoogleFonts.alkalami(fontSize: 23),
-              ),
-              const SizedBox(height: 32),
-              SizedBox(
-                child: FutureBuilder(
-                  future: highestGrossMovies,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasError) {
-                      return Center(child: Text(snapshot.error.toString()));
-                    } else if (snapshot.hasData) {
-                      return HighestGrossingMovies(
-                        snapshot: snapshot,
-                      );
-                    } else {
-                      return const Center(child: CircularProgressIndicator());
-                    }
-                  },
-                ),
-              ),
-              const SizedBox(height: 32),
-              Text(
-                ' Childrens movies',
-                style: GoogleFonts.alkalami(fontSize: 23),
-              ),
-              const SizedBox(height: 32),
-              SizedBox(
-                child: FutureBuilder(
-                  future: kidsMovies,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasError) {
-                      return Center(child: Text(snapshot.error.toString()));
-                    } else if (snapshot.hasData) {
-                      return ChildrensMovies(
-                        snapshot: snapshot,
-                      );
-                    } else {
-                      return const Center(child: CircularProgressIndicator());
-                    }
-                  },
-                ),
-              ),
-            ],
-          )),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        elevation: 10,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.category),
+            ),
+            IconButton(
+              onPressed: () {
+                const Homepage();
+              },
+              icon: Icon(Icons.home),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.account_circle),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

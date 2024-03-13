@@ -113,7 +113,29 @@ class Details extends StatelessWidget {
                             ],
                           ))
                     ],
-                  ))
+                  )),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // Handle action when "Watch List" button is pressed
+                          },
+                          child: Text('+ Add to Watch List'),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // Handle action when "Watched List" button is pressed
+                          },
+                          child: Text('+ Add to Watched List'),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
