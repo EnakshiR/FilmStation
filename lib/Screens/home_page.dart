@@ -10,6 +10,8 @@ import '../Widgets/highest_grossing_movies.dart';
 import '../Widgets/tv_shows.dart';
 import '../Widgets/cinema_movies.dart';
 import '../Screens/search_bar.dart';
+import 'watch_list_page.dart';
+import 'watched_list_page.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -170,17 +172,23 @@ class _HomePageState extends State<Homepage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => WatchListPage()));
+              },
               icon: const Icon(Icons.bookmark), //Watch list icon
             ),
             IconButton(
               onPressed: () {
                 const Homepage();
               },
-              icon: const Icon(Icons.home),
+              icon: const Icon(Icons.home), //Homepage icon
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => WatchedListPage()));
+              },
               icon: const Icon(Icons.toc_outlined), //Watched list icon
             ),
           ],

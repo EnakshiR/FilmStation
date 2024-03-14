@@ -31,4 +31,17 @@ class MovieLists {
         popularity: json["popularity"],
         voteAverage: json["vote_average"]);
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "title": title,
+      "backdrop_path": backDropPath,
+      "original_title": originalTitle,
+      "overview": overview,
+      "poster_path": posterPath,
+      "release_date": releaseDate,
+      "popularity": popularity,
+      "vote_average": voteAverage,
+    };
+  }
 }

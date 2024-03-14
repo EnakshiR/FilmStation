@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Functions/movie_list.dart';
+import 'package:flutter_application_1/Screens/watch_list.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../Widgets/back_button.dart';
+import 'watched_list.dart';
 
 class Details extends StatelessWidget {
   const Details({super.key, required this.movie});
@@ -120,13 +122,12 @@ class Details extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {
-                            /*Navigator.push(
-                            context, MaterialPageRoute(builder: (context) => SignUpPage()));*/
+                            WatchList.addToWatchList(movie);
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue, // Background color
                             textStyle: TextStyle(
-                              fontSize: 20, // Text size
+                              fontSize: 15, // Text size
                             ),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(
@@ -142,12 +143,12 @@ class Details extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {
-                            // Handle action when "Watched List" button is pressed
+                            WatchedList.addToWatchedList(movie);
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.green, // Background color
                             textStyle: TextStyle(
-                              fontSize: 20, // Text size
+                              fontSize: 15, // Text size
                             ),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(

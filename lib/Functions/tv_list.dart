@@ -28,4 +28,16 @@ class TVLists {
         popularity: json["popularity"],
         voteAverage: json["vote_average"]);
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "name": name,
+      "original_name": originalName,
+      "overview": overview,
+      "poster_path": posterPath,
+      "first_air_date": airingDate,
+      "popularity": popularity,
+      "vote_average": voteAverage,
+    };
+  }
 }

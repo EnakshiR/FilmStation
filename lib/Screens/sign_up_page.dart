@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Screens/home_page.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../Functions/repeated.dart';
 
 class SignUpPage extends StatefulWidget {

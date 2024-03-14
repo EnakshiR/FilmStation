@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Functions/movie_list.dart';
 
 import '../Widgets/movie_poster.dart';
-import 'watch_list.dart'; // Import your MovieLists class
+import 'watched_list.dart';
 
-class WatchListPage extends StatelessWidget {
-  WatchListPage();
+class WatchedListPage extends StatelessWidget {
+  WatchedListPage();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Watch List'),
+        title: Text('Watched List'),
       ),
       body: FutureBuilder<List<MovieLists>>(
-        future: WatchList.getWatchList(),
+        future: WatchedList.getWatchedList(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
