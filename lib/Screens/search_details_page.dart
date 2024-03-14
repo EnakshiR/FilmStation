@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import '../API/api_key_url.dart';
-import 'details_page_for_movies.dart';
+import 'movie_details_page.dart';
 import 'search_bar.dart';
 
 class SearchedDetails extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Screens/details_page_for_tv.dart';
+import '../Screens/tv_details_page.dart';
 
 class PopularTVShows extends StatelessWidget {
   const PopularTVShows({

@@ -24,8 +24,8 @@ class _LoginPageState extends State<LoginPage> {
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 253, 253, 253),
-            Color.fromARGB(255, 40, 104, 214),
+            Color.fromARGB(255, 21, 95, 159),
+            Color.fromARGB(255, 11, 30, 62),
           ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
         ),
         child: SingleChildScrollView(

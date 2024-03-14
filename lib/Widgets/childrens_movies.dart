@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Screens/details_page_for_movies.dart';
+import '../Screens/movie_details_page.dart';
 
 class ChildrensMovies extends StatelessWidget {
   const ChildrensMovies({

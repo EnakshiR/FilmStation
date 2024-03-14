@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:flutter_application_1/Screens/details_page_for_movies.dart';
+import 'package:flutter_application_1/Screens/movie_details_page.dart';
 
 class CinemaMovies extends StatelessWidget {
   const CinemaMovies({super.key, required this.snapshot});
