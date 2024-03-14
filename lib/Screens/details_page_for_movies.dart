@@ -120,8 +120,21 @@ class Details extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {
-                            // Handle action when "Watch List" button is pressed
+                            /*Navigator.push(
+                            context, MaterialPageRoute(builder: (context) => SignUpPage()));*/
                           },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue, // Background color
+                            textStyle: TextStyle(
+                              fontSize: 20, // Text size
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  10), // Button border radius
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 12), // Button padding
+                          ),
                           child: Text('+ Add to Watch List'),
                         ),
                       ),
@@ -131,6 +144,18 @@ class Details extends StatelessWidget {
                           onPressed: () {
                             // Handle action when "Watched List" button is pressed
                           },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green, // Background color
+                            textStyle: TextStyle(
+                              fontSize: 20, // Text size
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  10), // Button border radius
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 12), // Button padding
+                          ),
                           child: Text('+ Add to Watched List'),
                         ),
                       ),

@@ -39,7 +39,7 @@ class _HomePageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 113, 150, 213),
+        backgroundColor: const Color.fromARGB(255, 113, 150, 213),
         elevation: 0,
         title: Text('FILM STATION', style: GoogleFonts.audiowide(fontSize: 30)),
         centerTitle: true,
@@ -117,7 +117,6 @@ class _HomePageState extends State<Homepage> {
                 },
               ),
             ),
-            //const PopularTVShows(),
             const SizedBox(height: 32),
             Text(
               ' Highest-grossing movies',
@@ -172,17 +171,17 @@ class _HomePageState extends State<Homepage> {
           children: [
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.category),
+              icon: const Icon(Icons.bookmark), //Watch list icon
             ),
             IconButton(
               onPressed: () {
                 const Homepage();
               },
-              icon: Icon(Icons.home),
+              icon: const Icon(Icons.home),
             ),
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.account_circle),
+              icon: const Icon(Icons.toc_outlined), //Watched list icon
             ),
           ],
         ),

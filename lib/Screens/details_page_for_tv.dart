@@ -16,7 +16,7 @@ class DetailsTV extends StatelessWidget {
         slivers: [
           SliverAppBar.large(
             leading: const BackArrowButton(),
-            backgroundColor: Color.fromARGB(255, 10, 4, 28),
+            backgroundColor: const Color.fromARGB(255, 10, 4, 28),
             expandedHeight: 500,
             pinned: true,
             floating: true,
@@ -123,6 +123,18 @@ class DetailsTV extends StatelessWidget {
                           onPressed: () {
                             // Handle action when "Watch List" button is pressed
                           },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue, // Background color
+                            textStyle: TextStyle(
+                              fontSize: 20, // Text size
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  10), // Button border radius
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 12), // Button padding
+                          ),
                           child: Text('+ Add to Watch List'),
                         ),
                       ),
@@ -132,6 +144,18 @@ class DetailsTV extends StatelessWidget {
                           onPressed: () {
                             // Handle action when "Watched List" button is pressed
                           },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green, // Background color
+                            textStyle: TextStyle(
+                              fontSize: 20, // Text size
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  10), // Button border radius
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 12), // Button padding
+                          ),
                           child: Text('+ Add to Watched List'),
                         ),
                       ),

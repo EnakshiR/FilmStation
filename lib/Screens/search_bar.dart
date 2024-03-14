@@ -24,7 +24,7 @@ class _SearchBarFunctionState extends State<SearchBarFunction> {
           TextField(
             controller: searchItem,
             decoration: InputDecoration(
-              prefixIcon: Icon(Icons.search, color: Colors.white),
+              prefixIcon: const Icon(Icons.search, color: Colors.white),
               suffixIcon: IconButton(
                 icon: Icon(Icons.clear, color: Colors.white.withOpacity(0.6)),
                 onPressed: () {
