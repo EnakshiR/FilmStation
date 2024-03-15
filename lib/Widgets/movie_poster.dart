@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Functions/movie_list.dart'; // Import your MovieLists class
+import 'package:flutter_application_1/Functions/movie_list.dart';
 
+//MoviePoster class was created to show implement the Watch list and Watched list pages
 class MoviePoster extends StatelessWidget {
   final MovieLists movie;
 
@@ -9,9 +10,7 @@ class MoviePoster extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {
-          // Add onTap functionality to navigate to movie details page or any other action
-        },
+        onTap: () {},
         child: Card(
             elevation: 4.0,
             shape: RoundedRectangleBorder(

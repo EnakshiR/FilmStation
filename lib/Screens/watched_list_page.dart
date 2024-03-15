@@ -4,6 +4,7 @@ import 'package:flutter_application_1/Functions/movie_list.dart';
 import '../Widgets/movie_poster.dart';
 import 'watched_list.dart';
 
+//Created class called WatchedListPage, which is a page displaying a list of the watched movies.
 class WatchedListPage extends StatelessWidget {
   WatchedListPage();
 
@@ -34,9 +35,7 @@ class WatchedListPage extends StatelessWidget {
               ),
               itemCount: movies.length,
               itemBuilder: (context, index) {
-                return MoviePoster(
-                    movie: movies[
-                        index]); // Create a widget to display the movie poster
+                return MoviePoster(movie: movies[index]);
               },
             );
           }

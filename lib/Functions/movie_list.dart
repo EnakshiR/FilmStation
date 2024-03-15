@@ -1,3 +1,4 @@
+//The class has variables representing various attributes of a movie.
 class MovieLists {
   String title;
   String backDropPath;
@@ -8,7 +9,7 @@ class MovieLists {
   double popularity;
   double voteAverage;
 
-//Making a constructor
+//This constructor initializes an object of the MovieLists class with the provided attributes.
   MovieLists({
     required this.title,
     required this.backDropPath,
@@ -19,7 +20,7 @@ class MovieLists {
     required this.popularity,
     required this.voteAverage,
   });
-
+  //Factory constructor is used to instantiate a MovieLists object from a JSON map.
   factory MovieLists.fromJson(Map<String, dynamic> json) {
     return MovieLists(
         title: json["title"],
@@ -31,7 +32,7 @@ class MovieLists {
         popularity: json["popularity"],
         voteAverage: json["vote_average"]);
   }
-
+  //This method converts a MovieLists object to a JSON map
   Map<String, dynamic> toJson() {
     return {
       "title": title,

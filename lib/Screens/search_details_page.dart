@@ -8,6 +8,8 @@ import '../API/api_key_url.dart';
 import 'movie_details_page.dart';
 import 'search_bar.dart';
 
+//Represents a page to display search results based on a search query entered by the user.
+//It communicates with an API to fetch the results and displays them in a list format with movie details.
 class SearchedDetails extends StatefulWidget {
   final String searchQuery;
 

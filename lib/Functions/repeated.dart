@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
+//Function for logo takes an image name as input, loads the corresponding image from the app's assets, and returns it as an Image widget.
 Image logo(String imageName) {
   return Image.asset(
     imageName,
     fit: BoxFit.fitWidth,
-    width: 240,
-    height: 240,
+    width: 500,
+    height: 500,
   );
 }
 
+//Function creates a TextField widget with text for password fields and custom decoration.
 TextField reusableText(String text, IconData icon, bool isPasswordType,
     TextEditingController controller) {
   return TextField(
@@ -38,10 +40,13 @@ TextField reusableText(String text, IconData icon, bool isPasswordType,
   );
 }
 
+//This function creates a styled button used for the login and signup actions
 Container loginSignUpButton(
     BuildContext context, bool isLogin, Function onTap) {
   return Container(
-    width: MediaQuery.of(context).size.width,
+    width: MediaQuery.of(context)
+        .size
+        .width, //Used to retrieve the width of the current screen
     height: 50,
     margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
     decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),

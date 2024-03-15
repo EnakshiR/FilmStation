@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../Widgets/back_button.dart';
 
+//The tv show details of each tv show will be displayed
 class DetailsTV extends StatelessWidget {
   const DetailsTV({super.key, required this.tvShows});
 
@@ -39,6 +40,7 @@ class DetailsTV extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  //Displays the overview of the tv show
                   Text(
                     'Overview',
                     style: GoogleFonts.aBeeZee(
@@ -66,6 +68,7 @@ class DetailsTV extends StatelessWidget {
                           ),
                           child: Row(
                             children: [
+                              //Displays the airing date of the tv show
                               Text(
                                 'Airing date: ',
                                 style: GoogleFonts.aBeeZee(
@@ -96,6 +99,7 @@ class DetailsTV extends StatelessWidget {
                         ),
                         child: Row(
                           children: [
+                            //Displays the ratings of the tv show
                             Text(
                               'Ratings: ',
                               style: GoogleFonts.aBeeZee(
@@ -120,20 +124,16 @@ class DetailsTV extends StatelessWidget {
                     children: [
                       Expanded(
                         child: ElevatedButton(
-                          onPressed: () {
-                            // Handle action when "Watch List" button is pressed
-                          },
+                          onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue, // Background color
+                            backgroundColor: Colors.blue,
                             textStyle: TextStyle(
-                              fontSize: 20, // Text size
+                              fontSize: 20,
                             ),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  10), // Button border radius
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 12), // Button padding
+                            padding: EdgeInsets.symmetric(vertical: 12),
                           ),
                           child: Text('+ Add to Watch List'),
                         ),
@@ -141,20 +141,16 @@ class DetailsTV extends StatelessWidget {
                       const SizedBox(width: 16),
                       Expanded(
                         child: ElevatedButton(
-                          onPressed: () {
-                            // Handle action when "Watched List" button is pressed
-                          },
+                          onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green, // Background color
+                            backgroundColor: Colors.green,
                             textStyle: TextStyle(
-                              fontSize: 20, // Text size
+                              fontSize: 20,
                             ),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  10), // Button border radius
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 12), // Button padding
+                            padding: EdgeInsets.symmetric(vertical: 12),
                           ),
                           child: Text('+ Add to Watched List'),
                         ),

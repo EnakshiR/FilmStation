@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../Widgets/back_button.dart';
 import 'watched_list.dart';
 
+//The movie details of each movie will be displayed
 class Details extends StatelessWidget {
   const Details({super.key, required this.movie});
 
@@ -41,6 +42,7 @@ class Details extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  //Displays the overview of the movie
                   Text(
                     'Overview',
                     style: GoogleFonts.aBeeZee(
@@ -68,6 +70,7 @@ class Details extends StatelessWidget {
                           ),
                           child: Row(
                             children: [
+                              //Displays the release date of the movie
                               Text(
                                 'Release date: ',
                                 style: GoogleFonts.aBeeZee(
@@ -98,6 +101,7 @@ class Details extends StatelessWidget {
                           ),
                           child: Row(
                             children: [
+                              //Displays the ratings of the movie
                               Text(
                                 'Ratings: ',
                                 style: GoogleFonts.aBeeZee(
@@ -120,42 +124,42 @@ class Details extends StatelessWidget {
                   Row(
                     children: [
                       Expanded(
+                        //The "Add to Watch List" button will be displayed
                         child: ElevatedButton(
                           onPressed: () {
-                            WatchList.addToWatchList(movie);
+                            WatchList.addToWatchList(
+                                movie); //Add to WatchList function is called
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue, // Background color
+                            backgroundColor: Colors.blue,
                             textStyle: TextStyle(
-                              fontSize: 15, // Text size
+                              fontSize: 15,
                             ),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  10), // Button border radius
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 12), // Button padding
+                            padding: EdgeInsets.symmetric(vertical: 12),
                           ),
                           child: Text('+ Add to Watch List'),
                         ),
                       ),
                       const SizedBox(width: 16),
                       Expanded(
+                        //The "Add to Watched List" button will be displayed
                         child: ElevatedButton(
                           onPressed: () {
-                            WatchedList.addToWatchedList(movie);
+                            WatchedList.addToWatchedList(
+                                movie); //Add to WatchedList function is called
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green, // Background color
+                            backgroundColor: Colors.green,
                             textStyle: TextStyle(
-                              fontSize: 15, // Text size
+                              fontSize: 15,
                             ),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  10), // Button border radius
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 12), // Button padding
+                            padding: EdgeInsets.symmetric(vertical: 12),
                           ),
                           child: Text('+ Add to Watched List'),
                         ),

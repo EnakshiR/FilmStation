@@ -4,6 +4,7 @@ import 'package:flutter_application_1/Functions/movie_list.dart';
 import 'package:flutter_application_1/Functions/tv_list.dart';
 import 'package:http/http.dart' as http;
 
+//All the relevant API callings from my APIkeys
 class MyApiKeys {
   static const _cinemaMoviesURL =
       'https://api.themoviedb.org/3/movie/now_playing?api_key=cfe5b073340152cbfba63b6c9ef1f864';
@@ -23,13 +24,14 @@ class MyApiKeys {
   static String searchBarUrl(String query) =>
       'https://api.themoviedb.org/3/search/movie?api_key=cfe5b073340152cbfba63b6c9ef1f864&query=$query&sort_by=popularity.desc';
 
+  // Each function returns a Future object, which represents the asynchronous operation of fetching data.
   Future<List<MovieLists>> getNowPlayingMovies() async {
     final response = await http.get(Uri.parse(_cinemaMoviesURL));
     if (response.statusCode == 200) {
       final decodeJsonData = json.decode(response.body)['results'] as List;
       return decodeJsonData.map((movie) => MovieLists.fromJson(movie)).toList();
     } else {
-      throw Exception('Error has occured');
+      throw Exception('Error has occured'); //Error message will appear
     }
   }
 
@@ -39,7 +41,7 @@ class MyApiKeys {
       final decodeJsonData = json.decode(response.body)['results'] as List;
       return decodeJsonData.map((tvshow) => TVLists.fromJson(tvshow)).toList();
     } else {
-      throw Exception('Error has occured');
+      throw Exception('Error has occured'); //Error message will appear
     }
   }
 
@@ -49,7 +51,7 @@ class MyApiKeys {
       final decodeJsonData = json.decode(response.body)['results'] as List;
       return decodeJsonData.map((movie) => MovieLists.fromJson(movie)).toList();
     } else {
-      throw Exception('Error has occured');
+      throw Exception('Error has occured'); //Error message will appear
     }
   }
 
@@ -59,7 +61,7 @@ class MyApiKeys {
       final decodeJsonData = json.decode(response.body)['results'] as List;
       return decodeJsonData.map((movie) => MovieLists.fromJson(movie)).toList();
     } else {
-      throw Exception('Error has occured');
+      throw Exception('Error has occured'); //Error message will appear
     }
   }
 
@@ -69,7 +71,7 @@ class MyApiKeys {
       final decodeJsonData = json.decode(response.body)['results'] as List;
       return decodeJsonData.map((movie) => MovieLists.fromJson(movie)).toList();
     } else {
-      throw Exception('Error has occured');
+      throw Exception('Error has occured'); //Error message will appear
     }
   }
 
@@ -79,7 +81,7 @@ class MyApiKeys {
       final decodeJsonData = json.decode(response.body)['results'] as List;
       return decodeJsonData.map((movie) => MovieLists.fromJson(movie)).toList();
     } else {
-      throw Exception('Error has occured');
+      throw Exception('Error has occured'); //Error message will appear
     }
   }
 }

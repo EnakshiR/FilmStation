@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'search_details_page.dart';
 
+//Created a search bar with a clear button and functionality to navigate to a different page when the user submits a search query.
 class SearchBarFunction extends StatefulWidget {
   const SearchBarFunction({super.key});
 

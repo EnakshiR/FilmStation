@@ -1,3 +1,4 @@
+//The class has variables representing various attributes of a tv show.
 class TVLists {
   String name;
   String originalName;
@@ -7,7 +8,7 @@ class TVLists {
   double popularity;
   double voteAverage;
 
-//Making a constructor
+//This constructor initializes an object of the TVLists class with the provided attributes.
   TVLists({
     required this.name,
     required this.originalName,
@@ -17,7 +18,7 @@ class TVLists {
     required this.popularity,
     required this.voteAverage,
   });
-
+  //Factory constructor is used to instantiate a TVLists object from a JSON map.
   factory TVLists.fromJson(Map<String, dynamic> json) {
     return TVLists(
         name: json["name"],
@@ -28,7 +29,7 @@ class TVLists {
         popularity: json["popularity"],
         voteAverage: json["vote_average"]);
   }
-
+  //This method converts a TVLists object to a JSON map
   Map<String, dynamic> toJson() {
     return {
       "name": name,
