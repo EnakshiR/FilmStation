@@ -32,7 +32,6 @@ class _SearchedDetailsScreenState extends State<SearchedDetails> {
       var checkJson = data['results'];
 
       for (var i = 0; i < checkJson.length; i++) {
-        //only add value if all are present
         if (checkJson[i]['poster_path'] != null &&
             checkJson[i]['popularity'] != null &&
             checkJson[i]['overview'] != null) {
